@@ -1,0 +1,173 @@
+/* ===== Estilos generales (mobile-first) ===== */
+html {
+  background-color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  color: #FFFFFF;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  background-color: #000000;
+  /* Cielo estrellado solo con CSS: varias capas con teselas de distinto tamaño */
+  background-image:
+    /* Profundidad: degradado radial muy sutil detrás de la foto */
+    radial-gradient(ellipse at 50% 20%, #0A0A0F 0%, #000000 70%),
+    /* Estrellas de 450px */
+    radial-gradient(2px 2px at 60px 90px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 300px 380px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 400px 150px, rgba(255, 255, 255, 0.5), transparent),
+    /* Estrellas de 300px */
+    radial-gradient(1px 1px at 40px 220px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 220px 60px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 150px 160px, rgba(255, 255, 255, 0.4), transparent),
+    /* Estrellas de 200px */
+    radial-gradient(1px 1px at 30px 40px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 120px 150px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 170px 90px, rgba(255, 255, 255, 0.8), transparent);
+  background-size:
+    100% 100%,
+    450px 450px, 450px 450px, 450px 450px,
+    300px 300px, 300px 300px, 300px 300px,
+    200px 200px, 200px 200px, 200px 200px;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+  background-attachment: fixed;
+}
+
+/* ===== Contenedor central ===== */
+#contenedor {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 16px 32px 16px;
+  text-align: center;
+}
+
+/* ===== Foto, nombre y presentación ===== */
+#foto {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px auto;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  object-fit: cover;
+  /* Halo de luz suave */
+  box-shadow: 0 0 28px 6px rgba(255, 255, 255, 0.35);
+}
+
+h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.75em;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+#presentacion {
+  margin: 0 0 28px 0;
+  font-size: 1em;
+  color: #B8B8C0;
+}
+
+/* ===== Lista de botones ===== */
+#enlaces {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#enlaces li {
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+#enlaces a {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 12px 52px 12px 52px; /* espacio a ambos lados para centrar el texto */
+  line-height: 24px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  transition: transform 0.2s ease, background-color 0.2s ease,
+              color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Icono a la izquierda (blanco) */
+#enlaces a img {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  transition: filter 0.2s ease;
+}
+
+/* Efecto hover y foco: único efecto de la página */
+#enlaces a:hover,
+#enlaces a:focus {
+  transform: translateY(-2px);
+  background-color: #FFFFFF;
+  color: #000000;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+}
+
+#enlaces a:hover img,
+#enlaces a:focus img {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+
+/* Foco visible con teclado */
+#enlaces a:focus {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+/* ===== Insignia "Nuevo" ===== */
+.insignia {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  font-size: 0.7em;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: middle;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* En hover/foco se invierten los colores para que siga visible */
+#enlaces a:hover .insignia,
+#enlaces a:focus .insignia {
+  color: #FFFFFF;
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* ===== Pantallas medianas y grandes ===== */
+@media (min-width: 600px) {
+  #contenedor {
+    padding-top: 64px;
+  }
+}
+
+/* ===== Accesibilidad: sin transiciones si el usuario lo pide ===== */
+@media (prefers-reduced-motion: reduce) {
+  #enlaces a,
+  #enlaces a img,
+  .insignia {
+    transition: none;
+  }
+}
