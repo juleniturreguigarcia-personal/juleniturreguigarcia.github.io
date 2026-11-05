@@ -1,7 +1,4 @@
 /* ===== Estilos generales (mobile-first) ===== */
-html {
-  background-color: #000000;
-}
 
 body {
   margin: 0;
@@ -13,28 +10,28 @@ body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.4;
   background-color: #000000;
-  /* Cielo estrellado solo con CSS: varias capas con teselas de distinto tamaño */
+    /* Estrellas (capas superiores) y degradado de profundidad (capa inferior, la última) */
   background-image:
-    /* Profundidad: degradado radial muy sutil detrás de la foto */
-    radial-gradient(ellipse at 50% 20%, #0A0A0F 0%, #000000 70%),
-    /* Estrellas de 450px */
-    radial-gradient(2px 2px at 60px 90px, rgba(255, 255, 255, 0.9), transparent),
-    radial-gradient(1px 1px at 300px 380px, rgba(255, 255, 255, 0.6), transparent),
-    radial-gradient(2px 2px at 400px 150px, rgba(255, 255, 255, 0.5), transparent),
-    /* Estrellas de 300px */
-    radial-gradient(1px 1px at 40px 220px, rgba(255, 255, 255, 0.8), transparent),
-    radial-gradient(2px 2px at 220px 60px, rgba(255, 255, 255, 0.6), transparent),
-    radial-gradient(1px 1px at 150px 160px, rgba(255, 255, 255, 0.4), transparent),
-    /* Estrellas de 200px */
-    radial-gradient(1px 1px at 30px 40px, rgba(255, 255, 255, 0.7), transparent),
-    radial-gradient(1px 1px at 120px 150px, rgba(255, 255, 255, 0.5), transparent),
-    radial-gradient(2px 2px at 170px 90px, rgba(255, 255, 255, 0.8), transparent);
+    /* Estrellas de la tesela de 450px (con halo) */
+    radial-gradient(circle at 60px 90px, #FFFFFF 0, #FFFFFF 1px, rgba(255, 255, 255, 0.3) 2px, transparent 6px),
+    radial-gradient(circle at 300px 380px, rgba(255, 255, 255, 0.6) 0, rgba(255, 255, 255, 0.6) 0.7px, rgba(255, 255, 255, 0.18) 1.5px, transparent 4px),
+    radial-gradient(circle at 400px 150px, rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 1px, rgba(255, 255, 255, 0.15) 2px, transparent 5px),
+    /* Estrellas de la tesela de 300px (con halo) */
+    radial-gradient(circle at 40px 220px, rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0.8) 0.7px, rgba(255, 255, 255, 0.24) 1.5px, transparent 4px),
+    radial-gradient(circle at 220px 60px, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.7) 1px, rgba(255, 255, 255, 0.2) 2px, transparent 5px),
+    radial-gradient(circle at 150px 160px, rgba(255, 255, 255, 0.45) 0, rgba(255, 255, 255, 0.45) 0.7px, rgba(255, 255, 255, 0.14) 1.5px, transparent 4px),
+    /* Estrellas de la tesela de 200px (con halo) */
+    radial-gradient(circle at 30px 40px, rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0.8) 0.7px, rgba(255, 255, 255, 0.24) 1.5px, transparent 4px),
+    radial-gradient(circle at 120px 150px, rgba(255, 255, 255, 0.55) 0, rgba(255, 255, 255, 0.55) 0.7px, rgba(255, 255, 255, 0.16) 1.5px, transparent 4px),
+    radial-gradient(circle at 170px 90px, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0.9) 1px, rgba(255, 255, 255, 0.27) 2px, transparent 6px),
+    /* Profundidad: degradado sutil detrás de la foto (al fondo) */
+    radial-gradient(ellipse at 50% 20%, #0A0A0F 0%, #000000 70%);
   background-size:
-    100% 100%,
     450px 450px, 450px 450px, 450px 450px,
     300px 300px, 300px 300px, 300px 300px,
-    200px 200px, 200px 200px, 200px 200px;
-  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+    200px 200px, 200px 200px, 200px 200px,
+    100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
   background-attachment: fixed;
 }
 
