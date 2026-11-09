@@ -1,0 +1,40 @@
+#!/bin/sh
+# Hook pre-commit: actualiza los ?v=<hash> de index.html antes de cada commit.
+# Se instala con: powershell -ExecutionPolicy Bypass -File scripts/instalar-hooks.ps1
+
+set -e
+
+# No interferir con merges o rebases en curso
+if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ] || \
+   [ -d "$(git rev-parse --git-path rebase-merge)" ] || \
+   [ -d "$(git rev-parse --git-path rebase-apply)" ]; then
+  echo "Merge/rebase en curso: se omite el versionado automatico."
+  exit 0
+fi
+
+# Los hashes se calculan sobre los archivos del disco, asi que deben coincidir
+# con lo que se va a commitear. Si hay cambios sin preparar, avisamos.
+if ! git diff --quiet -- index.html css docs images; then
+  echo "Hay cambios sin preparar en index.html, css/, docs/ o images/."
+  echo "Ejecuta 'git add -A' y vuelve a commitear."
+  exit 1
+fi
+
+if [ -n "$(git ls-files --others --exclude-standard -- css docs images)" ]; then
+  echo "Hay archivos nuevos sin preparar en css/, docs/ o images/."
+  echo "Ejecuta 'git add -A' y vuelve a commitear."
+  exit 1
+fi
+
+# Ejecutar el versionado con PowerShell (pwsh en Linux/macOS, powershell en Windows)
+if command -v pwsh >/dev/null 2>&1; then
+  pwsh -NoProfile -File scripts/versionar-assets.ps1
+elif command -v powershell >/dev/null 2>&1; then
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/versionar-assets.ps1
+else
+  echo "No se encontro PowerShell; no se pudieron actualizar las versiones."
+  exit 1
+fi
+
+# Incluir el index.html versionado en el commit
+git add index.html
