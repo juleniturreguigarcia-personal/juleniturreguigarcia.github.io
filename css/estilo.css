@@ -148,15 +148,26 @@ h1 {
   }
 }
 
-/* ===== Accesibilidad: sin transiciones si el usuario lo pide ===== */
-@media (prefers-reduced-motion: reduce) {
-  #enlaces a,
-  #enlaces a img,
-  .insignia {
-    transition: none;
-  }
+/* ===== Botón doble (CV en español e inglés): dos mitades lado a lado ===== */
+#enlaces li.doble {
+  display: -webkit-flex;
+  display: flex;
+  gap: 16px;
+}
 
-  /* ===== Pie de página: centrado y siempre al final ===== */
+#enlaces li.doble a {
+  -webkit-flex: 1 1 0;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 12px 8px 12px 44px;
+  text-align: center;
+}
+
+#enlaces li.doble a img {
+  left: 12px;
+}
+
+/* ===== Pie de página: centrado y siempre al final (igual en todos los dispositivos) ===== */
 #pie {
   margin: auto 0 0 0;
   padding: 24px 16px;
@@ -164,4 +175,12 @@ h1 {
   font-size: 0.875em;
   color: #B8B8C0;
 }
+
+/* ===== Accesibilidad: sin transiciones si el usuario lo pide ===== */
+@media (prefers-reduced-motion: reduce) {
+  #enlaces a,
+  #enlaces a img,
+  .insignia {
+    transition: none;
+  }
 }
