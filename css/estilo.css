@@ -49,11 +49,12 @@ body {
 #foto {
   display: block;
   width: 350px;
-  height: 350px;
+  max-width: 100%;      /* en móviles estrechos nunca desborda */
+  aspect-ratio: 1 / 1;  /* se mantiene cuadrada al reducirse */
+  height: auto;
   margin: 0 auto 16px auto;
   border: 2px solid #FFFFFF;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
   object-fit: cover;
   /* Halo de luz suave */
   box-shadow: 0 0 28px 6px rgba(255, 255, 255, 0.35);
@@ -124,21 +125,12 @@ h1 {
 #enlaces a:hover img,
 #enlaces a:focus img {
   filter: invert(1);
-  -webkit-filter: invert(1);
 }
 
 /* Foco visible con teclado */
 #enlaces a:focus {
   outline: 2px solid #FFFFFF;
   outline-offset: 3px;
-}
-
-/* En hover/foco se invierten los colores para que siga visible */
-#enlaces a:hover .insignia,
-#enlaces a:focus .insignia {
-  color: #FFFFFF;
-  background-color: #000000;
-  border-color: #000000;
 }
 
 /* ===== Pantallas medianas y grandes ===== */
@@ -150,13 +142,11 @@ h1 {
 
 /* ===== Botón doble (CV en español e inglés): dos mitades lado a lado ===== */
 #enlaces li.doble {
-  display: -webkit-flex;
   display: flex;
   gap: 16px;
 }
 
 #enlaces li.doble a {
-  -webkit-flex: 1 1 0;
   flex: 1 1 0;
   min-width: 0;
   padding: 12px 8px 12px 44px;
@@ -179,8 +169,7 @@ h1 {
 /* ===== Accesibilidad: sin transiciones si el usuario lo pide ===== */
 @media (prefers-reduced-motion: reduce) {
   #enlaces a,
-  #enlaces a img,
-  .insignia {
+  #enlaces a img {
     transition: none;
   }
 }
