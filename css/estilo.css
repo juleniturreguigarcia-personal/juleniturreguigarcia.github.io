@@ -68,37 +68,82 @@ h1 {
 }
 
 #presentacion {
-  margin: 0 0 14px 0;
-  font-size: 1em;
+  margin: 0 0 16px 0;
+}
+
+#presentacion .rol {
+  display: block;
+}
+
+#presentacion .rol-principal {
+  font-size: 1.02em;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+#presentacion .rol-secundario {
+  margin-top: 2px;
+  font-size: 0.94em;
   color: #B8B8C0;
 }
 
 #bio {
   max-width: 430px;
-  margin: 0 auto 18px auto;
-  font-size: 0.94em;
-  color: #C9C9D2;
+  margin: 0 auto 22px auto;
+  font-size: 0.92em;
+  color: #A9A9B6;
 }
 
-#skills {
+#competencias {
+  margin: 0 0 18px 0;
+}
+
+#competencias .bloque + .bloque {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.chips {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
-  margin: 0 0 28px 0;
+  gap: 7px;
+  margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-#skills li {
+.chips li {
   padding: 5px 11px;
   font-size: 0.82em;
   font-weight: 600;
   line-height: 1.2;
   color: #DCDCE4;
-  background-color: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
+}
+
+.chips li.destacado {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.stack {
+  margin: 9px 0 0 0;
+  font-size: 0.82em;
+  line-height: 1.5;
+  color: #C9C9D2;
+}
+
+#extras {
+  margin: 0 0 28px 0;
+  font-size: 0.82em;
+  line-height: 1.5;
+  color: #B0B0BC;
+  letter-spacing: 0.02em;
 }
 
 /* ===== Lista de botones ===== */
