@@ -1,2 +1,9 @@
 # El hook de Git se ejecuta con sh: debe conservar finales de linea LF
 scripts/hooks/* text eol=lf
+
+# Texto normalizado a LF: los hashes ?v= se calculan sobre el contenido,
+# y con CRLF cambiarian segun la plataforma aunque el archivo sea el mismo.
+*.html text eol=lf
+*.css  text eol=lf
+*.svg  text eol=lf
+*.md   text eol=lf
