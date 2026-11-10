@@ -3,7 +3,8 @@
   referenciados en index.html (css/, docs/ e images/).
 
   El hash se calcula a partir del CONTENIDO del archivo, así que la URL
-  solo cambia cuando el archivo cambia. El workflow lo ejecuta al publicar.
+  solo cambia cuando el archivo cambia. Lo ejecuta el hook pre-commit
+  antes de cada commit.
 
   Uso local (solo muestra el resultado, no escribe):
     powershell -ExecutionPolicy Bypass -File scripts/versionar-assets.ps1 -DryRun
